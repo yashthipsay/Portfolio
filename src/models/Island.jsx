@@ -9,63 +9,85 @@ Title: Cabriolet from the concept
 import React, { useRef, useEffect } from "react";
 import { useGLTF } from "@react-three/drei";
 import {useFrame, useThree} from '@react-three/fiber';
-import islandScene from '../assets/3d/cabriolet_from_the_concept.glb';
+import islandScene from '../assets/3d/desert_road.glb';
 import {a} from '@react-spring/three';
 
 const Island = (props) => {
   const { nodes, materials } = useGLTF(islandScene);
   const islandRef = useRef();
   return (
-    <a.group {...props} ref={islandRef}>
-      <a.group rotation={[-Math.PI / 2, 0, 0]} scale={0.004}>
-        <a.group rotation={[Math.PI / 2, 0, 0]}>
-          <a.group rotation={[0.047, 0, 0]} scale={100}>
-            <mesh
-              
-              
-              geometry={nodes.Cabrio_Body_0.geometry}
-              material={materials.Body}
-            />
-            <mesh
-              
-              
-              geometry={nodes.Cabrio_Body_0_1.geometry}
-              material={materials.Body}
-            />
-            <mesh
-              
-              
-              geometry={nodes.Cabrio_Body_0_2.geometry}
-              material={materials.Body}
-            />
-            <mesh
-              
-              
-              geometry={nodes.Cabrio_Inside_0.geometry}
-              material={materials.Inside}
-            />
-            <mesh
-              
-              
-              geometry={nodes.Cabrio_Flames_0.geometry}
-              material={materials.Flames}
-            />
-          </a.group>
-          <a.group position={[522.108, -624.058, 0]} scale={100}>
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.Platform_Emissive_0.geometry}
-              material={materials.Emissive}
-            />
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.Platform_Podium_0.geometry}
-              material={materials.Podium}
-            />
-          </a.group>
+    <a.group {...props} red={islandRef}>
+      <a.group scale={0.01}>
+        <a.group
+          position={[-43.282, 284.869, 0.712]}
+          rotation={[-Math.PI / 2, 0, 0]}
+        >
+          <mesh
+            geometry={nodes.body_body_0.geometry}
+            material={materials.body}
+          />
+          <mesh
+            geometry={nodes.body_body_0_1.geometry}
+            material={materials.body}
+          />
         </a.group>
+        <a.group
+          position={[-42.467, 109.268, 3.732]}
+          rotation={[-Math.PI / 2, 0, 0]}
+        >
+          <mesh
+            geometry={nodes.terrain_terrain_0.geometry}
+            material={materials.terrain}
+          />
+          <mesh
+            geometry={nodes.terrain_terrain_0_1.geometry}
+            material={materials.terrain}
+          />
+        </a.group>
+        <a.group
+          position={[-43.282, 284.869, 0.712]}
+          rotation={[-Math.PI / 2, 0, 0]}
+        >
+          <mesh
+            geometry={nodes.body001outline_body001outline_0.geometry}
+            material={materials.body001outline}
+          />
+          <mesh
+            geometry={nodes.body001outline_body001outline_0_1.geometry}
+            material={materials.body001outline}
+          />
+        </a.group>
+        <a.group
+          position={[-42.467, 109.268, 3.732]}
+          rotation={[-Math.PI / 2, 0, 0]}
+        >
+          <mesh
+            geometry={nodes.terrain001outline_terrain001outline_0.geometry}
+            material={materials.terrain001outline}
+          />
+          <mesh
+            geometry={nodes.terrain001outline_terrain001outline_0_1.geometry}
+            material={materials.terrain001outline}
+          />
+        </a.group>
+        <mesh
+          geometry={nodes.sky_sky_0.geometry}
+          material={materials.material}
+          position={[-43.282, 284.869, 0.712]}
+          rotation={[-Math.PI / 2, 0, 0]}
+        />
+        <mesh
+          geometry={nodes.glass_glass_0.geometry}
+          material={materials.glass}
+          position={[-43.282, 284.869, 0.712]}
+          rotation={[-Math.PI / 2, 0, 0]}
+        />
+        <mesh
+          geometry={nodes.Object001_terrain001outline_0.geometry}
+          material={materials.terrain001outline}
+          position={[-42.467, 109.268, 3.732]}
+          rotation={[-Math.PI / 2, 0, 0]}
+        />
       </a.group>
     </a.group>
   );
