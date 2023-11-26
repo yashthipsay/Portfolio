@@ -14,7 +14,7 @@ const Home = () => {
   const adjustIslandForScreenSize = () => {
     let screenScale = null;
     let screenPosition = [-1, -2.5, -4];
-    let rotation = [0.2, 5.7, 0];
+    let rotation = [0.1, 5.7, 0];
 
     if(window.innerWidth < 768){
       screenScale = [10, 10, 10];
@@ -26,7 +26,7 @@ const Home = () => {
 
   const adjustPlaneForScreenSize = () => {
     let screenScale, screenPosition;
-
+    
     if(window.innerWidth < 768){
       screenScale = [0.03, 0.03, 0.03];
       // screenPosition = [0, -4, -4];
@@ -51,17 +51,19 @@ const Home = () => {
           <ambientLight intensity={1}/>
           <hemisphereLight skyColor="#b1e1ff" groundColor="#000000" intensity={1}/>
           <Bird/>
-          <Sky />
+          <Sky isRotating={isRotating}/>
           <Island 
             scale = {islandScale}
             position={islandPosition}
-            rotation={rotation}
+            rotation={[0.1, 4.707, 0]}
             isRotating={isRotating}
             setIsRotating={setIsRotating}
           />
           <Plane 
-            planeScale={planeScale}
-            planePosition={planePosition}
+            planeScale={[0.3, 0.3, 0.3]}
+            position={[0, -2 ,0]}
+            isRotating={isRotating}
+            rotation = {[0, -1.5 ,0]}
           />
          
         </Suspense>
